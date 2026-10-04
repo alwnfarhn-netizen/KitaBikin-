@@ -6,9 +6,8 @@ export default function Footer() {
     <footer style={{ backgroundColor: 'var(--secondary)', color: 'white', paddingTop: '4rem', paddingBottom: '2rem' }}>
       <div className="container grid grid-cols-3 gap-8 mb-12">
         <div>
-          <div className="logo mb-4" style={{ color: 'white' }}>
-            <BookOpen className="logo-dot" />
-            <span>Kita<span className="logo-dot">Bikin</span></span>
+          <div className="logo mb-4">
+            <img src="/logo-full-light.svg" alt="KitaBikin" style={{ height: '48px' }} />
           </div>
           <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
             Solusi digital terbaik untuk institusi pendidikan. Membantu sekolah bertransformasi di era teknologi dengan mudah dan efisien.

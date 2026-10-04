@@ -8,7 +8,10 @@ export default function ClientDashboard() {
     <div className="flex" style={{ minHeight: '100vh', backgroundColor: 'var(--background)' }}>
       {/* Sidebar */}
       <aside style={{ width: '260px', backgroundColor: 'var(--surface)', borderRight: '1px solid var(--border)', padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column' }}>
-        <div className="logo mb-8">KitaBikin<span className="logo-dot">.</span><span style={{ fontSize: '1rem', color: 'var(--text-muted)', marginLeft: '8px' }}>Client</span></div>
+        <div className="logo mb-8">
+          <img src="/logo-full.svg" alt="KitaBikin" style={{ height: '36px' }} />
+          <span style={{ fontSize: '1rem', color: 'var(--text-muted)', marginLeft: '8px', alignSelf: 'flex-end' }}>Client</span>
+        </div>
         
         <nav className="flex flex-col gap-2 flex-grow">
           <Link to="/client" className="flex items-center gap-3" style={{ padding: '0.75rem', borderRadius: '0.5rem', backgroundColor: 'var(--primary-light)', color: 'var(--primary)', fontWeight: '600' }}>
