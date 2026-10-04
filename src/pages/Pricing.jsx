@@ -1,0 +1,58 @@
+import { Link } from 'react-router-dom';
+import { CheckCircle } from 'lucide-react';
+
+export default function Pricing() {
+  return (
+    <div className="section" style={{ paddingTop: '120px' }}>
+      <div className="container">
+        <div className="text-center mb-12">
+          <h1>Paket Harga</h1>
+          <p style={{ color: 'var(--text-muted)' }}>Investasi terbaik untuk masa depan pendidikan.</p>
+        </div>
+
+        <div className="grid grid-cols-3 gap-8 items-center">
+          
+          <div className="card">
+            <h3 className="mb-2">Media Pembelajaran</h3>
+            <div style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem' }}>Custom</div>
+            <p className="mb-6" style={{ color: 'var(--text-muted)' }}>Harga berdasarkan kompleksitas media.</p>
+            <ul className="flex flex-col gap-3 mb-8">
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Interaktif & Menarik</li>
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Desain Custom</li>
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Format Multi-platform</li>
+            </ul>
+            <Link to="/order" className="btn btn-outline" style={{ width: '100%', marginTop: 'auto' }}>Konsultasi</Link>
+          </div>
+
+          <div className="card" style={{ transform: 'scale(1.05)', borderColor: 'var(--primary)', boxShadow: 'var(--shadow-red)', zIndex: 1 }}>
+            <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translate(-50%, -50%)', background: 'var(--primary)', color: 'white', padding: '0.25rem 1rem', borderRadius: 'var(--radius-pill)', fontWeight: '600', fontSize: '0.875rem' }}>Paling Populer</div>
+            <h3 className="mb-2">Website Sekolah</h3>
+            <div style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--text-muted)' }}>Mulai</div>
+            <div style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', lineHeight: 1 }}>Rp800K</div>
+            <ul className="flex flex-col gap-3 mb-8">
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Desain modern & Responsive</li>
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Halaman profil sekolah</li>
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Informasi akademik & Berita</li>
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Galeri & Kontak</li>
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Training admin</li>
+            </ul>
+            <Link to="/order" className="btn btn-primary" style={{ width: '100%', marginTop: 'auto' }}>Mulai Proyek</Link>
+          </div>
+
+          <div className="card">
+            <h3 className="mb-2">Sistem Sekolah</h3>
+            <div style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem' }}>Custom</div>
+            <p className="mb-6" style={{ color: 'var(--text-muted)' }}>Disesuaikan dengan kebutuhan.</p>
+            <ul className="flex flex-col gap-3 mb-8">
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> PPDB Online</li>
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> E-Learning Terintegrasi</li>
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Dashboard Admin & Siswa</li>
+            </ul>
+            <Link to="/order" className="btn btn-outline" style={{ width: '100%', marginTop: 'auto' }}>Konsultasi</Link>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
