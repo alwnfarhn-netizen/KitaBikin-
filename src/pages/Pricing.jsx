@@ -24,7 +24,7 @@ export default function Pricing() {
             <Link to="/order" className="btn btn-outline" style={{ width: '100%', marginTop: 'auto' }}>Konsultasi</Link>
           </div>
 
-          <div className="card" style={{ transform: 'scale(1.05)', borderColor: 'var(--primary)', boxShadow: 'var(--shadow-red)', zIndex: 1 }}>
+          <div className="card" style={{ transform: 'scale(1.05)', borderColor: 'var(--primary)', boxShadow: 'var(--shadow-primary)', zIndex: 1 }}>
             <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translate(-50%, -50%)', background: 'var(--primary)', color: 'white', padding: '0.25rem 1rem', borderRadius: 'var(--radius-pill)', fontWeight: '600', fontSize: '0.875rem' }}>Paling Populer</div>
             <h3 className="mb-2">Website Sekolah</h3>
             <div style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--text-muted)' }}>Mulai</div>

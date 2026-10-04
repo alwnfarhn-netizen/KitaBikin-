@@ -2,12 +2,12 @@
 
 :root {
   /* Color Palette */
-  --primary: #E63946;
-  --primary-hover: #D62828;
-  --primary-light: rgba(230, 57, 70, 0.1);
-  --secondary: #1D3557;
-  --secondary-light: #457B9D;
-  --background: #FDFBF7;
+  --primary: #F97316; /* Orange */
+  --primary-hover: #EA580C;
+  --primary-light: rgba(249, 115, 22, 0.1);
+  --secondary: #1E3A8A; /* Biru tua dari logo */
+  --secondary-light: #3B82F6;
+  --background: #FAF9F6; /* Off-white */
   --surface: #FFFFFF;
   --text-main: #1E293B;
   --text-muted: #64748B;
@@ -27,7 +27,7 @@
   --shadow-sm: 0 2px 4px rgba(29, 53, 87, 0.05);
   --shadow-md: 0 4px 12px rgba(29, 53, 87, 0.08);
   --shadow-lg: 0 12px 24px rgba(29, 53, 87, 0.12);
-  --shadow-red: 0 8px 16px rgba(230, 57, 70, 0.2);
+  --shadow-primary: 0 8px 16px rgba(249, 115, 22, 0.2);
   
   /* Fonts */
   --font-main: 'Outfit', system-ui, sans-serif;
@@ -119,6 +119,18 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 .mb-10 { margin-bottom: 2.5rem; }
 .mb-12 { margin-bottom: 3rem; }
 
+/* Tambahan Utilities */
+.text-center { text-align: center; }
+.flex-grow { flex-grow: 1; }
+.gap-3 { gap: 0.75rem; }
+.items-end { align-items: flex-end; }
+.mb-1 { margin-bottom: 0.25rem; }
+.relative { position: relative; }
+.cursor-pointer { cursor: pointer; }
+.text-lg { font-size: 1.125rem; }
+.hover\:text-white:hover { color: var(--white) !important; }
+.hover\:border-primary:hover { border-color: var(--primary) !important; }
+
 .grid { display: grid; }
 .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
@@ -167,13 +179,13 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 .btn-primary {
   background-color: var(--primary);
   color: var(--white);
-  box-shadow: var(--shadow-red);
+  box-shadow: var(--shadow-primary);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 20px rgba(230, 57, 70, 0.3);
+  box-shadow: 0 12px 20px rgba(249, 115, 22, 0.3);
 }
 
 .btn-outline {
@@ -203,7 +215,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 .card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(230, 57, 70, 0.3);
+  border-color: rgba(249, 115, 22, 0.3);
 }
 
 /* Specific Poster Effects */
