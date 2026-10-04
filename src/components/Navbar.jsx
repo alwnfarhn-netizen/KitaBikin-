@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="container nav-container">
         <Link to="/" className="logo" onClick={closeMenu}>
           <BookOpen className="logo-dot" />
-          <span>DEV<span className="logo-dot">De</span></span>
+          <span>Kita<span className="logo-dot">Bikin</span></span>
         </Link>
         
         {/* Mobile Menu Toggle */}

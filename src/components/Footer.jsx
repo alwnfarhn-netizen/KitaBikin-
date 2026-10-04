@@ -8,7 +8,7 @@ export default function Footer() {
         <div>
           <div className="logo mb-4" style={{ color: 'white' }}>
             <BookOpen className="logo-dot" />
-            <span>DEV<span className="logo-dot">De</span></span>
+            <span>Kita<span className="logo-dot">Bikin</span></span>
           </div>
           <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
             Solusi digital terbaik untuk institusi pendidikan. Membantu sekolah bertransformasi di era teknologi dengan mudah dan efisien.
@@ -44,7 +44,7 @@ export default function Footer() {
       <div className="container">
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }}>
-            &copy; {new Date().getFullYear()} DEVDe. All rights reserved.
+            &copy; {new Date().getFullYear()} KitaBikin. All rights reserved.
           </p>
           <div className="flex gap-4">
             <a href="#" style={{ color: 'rgba(255,255,255,0.5)' }}>Instagram</a>
