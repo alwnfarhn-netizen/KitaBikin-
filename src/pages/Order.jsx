@@ -10,9 +10,9 @@ export default function Order() {
   });
 
   const services = [
-    { id: 'Website Profil & Landing Page', icon: <Monitor size={32} />, title: 'Website & Landing Page' },
-    { id: 'Toko Online / E-Commerce', icon: <Server size={32} />, title: 'Toko Online' },
-    { id: 'Sistem Kasir & POS', icon: <PenTool size={32} />, title: 'Sistem Kasir / POS' },
+    { id: 'Website Profil', icon: <Monitor size={32} />, title: 'Web Sekolah / Bisnis' },
+    { id: 'Sistem & Toko Online', icon: <Server size={32} />, title: 'Sistem & Toko Online' },
+    { id: 'Media Pembelajaran', icon: <PenTool size={32} />, title: 'Media Pembelajaran' },
     { id: 'Aplikasi Custom', icon: <Smartphone size={32} />, title: 'Aplikasi Custom' },
   ];
 
@@ -72,12 +72,12 @@ export default function Order() {
             
             <form onSubmit={handleSubmit}>
               <div className="input-group">
-                <label className="input-label">Nama Anda / Bisnis Anda</label>
+                <label className="input-label">Nama Anda / Bisnis / Instansi</label>
                 <input 
                   type="text" 
                   className="input-field" 
                   required 
-                  placeholder="Contoh: Budi - Toko Budi Jaya" 
+                  placeholder="Contoh: Budi - SMKN 1 / Toko Jaya" 
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                 />
@@ -89,7 +89,7 @@ export default function Order() {
                   className="input-field" 
                   rows="4" 
                   required 
-                  placeholder="Contoh: Saya butuh website profil untuk usaha saya dengan fitur galeri dan kontak..."
+                  placeholder="Contoh: Saya butuh website profil untuk usaha/sekolah saya dengan fitur..."
                   value={formData.description}
                   onChange={(e) => setFormData({...formData, description: e.target.value})}
                 ></textarea>

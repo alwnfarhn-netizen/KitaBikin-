@@ -10,17 +10,17 @@ export default function Footer() {
             <img src="/logo-full-light.svg" alt="KitaBikin" style={{ height: '48px' }} />
           </div>
           <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
-            Solusi digital terbaik untuk UMKM dan Perusahaan. Membantu bisnis Anda bertransformasi di era teknologi dengan mudah dan efisien.
+            Solusi digital terbaik untuk UMKM, Perusahaan, dan Institusi Pendidikan. Membantu Anda bertransformasi di era teknologi dengan mudah.
           </p>
         </div>
         
         <div>
           <h4 className="mb-4" style={{ color: 'white' }}>Layanan</h4>
           <ul className="flex flex-col gap-2">
-            <li><Link to="/layanan" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Website Profil Bisnis</Link></li>
-            <li><Link to="/layanan" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Toko Online (E-Commerce)</Link></li>
-            <li><Link to="/layanan" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Sistem Kasir & POS</Link></li>
-            <li><Link to="/layanan" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Aplikasi Mobile Custom</Link></li>
+            <li><Link to="/layanan" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Website Profil (Sekolah & Bisnis)</Link></li>
+            <li><Link to="/layanan" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Sistem Akademik & Kasir POS</Link></li>
+            <li><Link to="/layanan" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Media Pembelajaran Interaktif</Link></li>
+            <li><Link to="/layanan" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Aplikasi Mobile & Custom</Link></li>
           </ul>
         </div>
 

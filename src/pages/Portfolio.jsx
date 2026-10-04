@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const projects = [
-  { id: 1, title: 'Website PT. Abadi Jaya', category: 'Website', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80' },
-  { id: 2, title: 'Kopi Kita E-Commerce', category: 'Toko Online', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80' },
-  { id: 3, title: 'Aplikasi Reservasi Klinik', category: 'Aplikasi Mobile', img: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80' },
+  { id: 1, title: 'Website SMP Negeri 1', category: 'Website', img: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80' },
+  { id: 2, title: 'Kopi Kita E-Commerce', category: 'Website', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80' },
+  { id: 3, title: 'Media Tata Surya', category: 'Media Pembelajaran', img: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=600&q=80' },
   { id: 4, title: 'Sistem Kasir Warung', category: 'Sistem / POS', img: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=600&q=80' },
-  { id: 5, title: 'Landing Page Event', category: 'Website', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80' },
-  { id: 6, title: 'Manajemen Inventaris', category: 'Sistem / POS', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80' }
+  { id: 5, title: 'Sistem PPDB 2026', category: 'Sistem / POS', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80' },
+  { id: 6, title: 'Game Math Adventure', category: 'Media Pembelajaran', img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80' }
 ];
 
-const categories = ['Semua', 'Website', 'Toko Online', 'Aplikasi Mobile', 'Sistem / POS'];
+const categories = ['Semua', 'Website', 'Media Pembelajaran', 'Sistem / POS'];
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState('Semua');
