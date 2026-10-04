@@ -34,7 +34,7 @@ export default function Pricing() {
               <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Halaman Profil & Layanan</li>
               <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> SEO & Optimasi Kecepatan</li>
               <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Galeri, Testimoni & Kontak</li>
-              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Domain & Hosting (1 Tahun)</li>
+              <li className="flex gap-2"><CheckCircle size={20} color="var(--primary)" /> Panduan Penggunaan (Training)</li>
             </ul>
             <Link to="/order" className="btn btn-primary" style={{ width: '100%', marginTop: 'auto' }}>Mulai Proyek</Link>
           </div>
