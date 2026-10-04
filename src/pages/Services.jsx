@@ -8,7 +8,7 @@ export default function Services() {
           <div className="handwritten mb-4">Solusi Terbaik Kami</div>
           <h1 className="mb-4">Layanan <span style={{ color: 'var(--primary)' }}>Digital</span></h1>
           <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
-            Kami menyediakan berbagai layanan pengembangan teknologi digital untuk membantu institusi pendidikan Anda berkembang lebih cepat.
+            Kami menyediakan berbagai layanan pengembangan teknologi digital untuk membantu bisnis dan UMKM Anda berkembang lebih cepat.
           </p>
         </div>
 
@@ -19,10 +19,10 @@ export default function Services() {
             <div style={{ backgroundColor: 'var(--primary-light)', width: '60px', height: '60px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', color: 'var(--primary)' }}>
               <Server size={32} />
             </div>
-            <h3 className="mb-4">Digitalisasi Sekolah</h3>
-            <p className="mb-6" style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Membantu sekolah Anda go-digital dengan sistem terintegrasi yang memudahkan manajemen.</p>
+            <h3 className="mb-4">Website & E-Commerce</h3>
+            <p className="mb-6" style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Membantu bisnis Anda menjangkau pasar yang lebih luas dengan toko online atau company profile profesional.</p>
             <ul className="flex flex-col gap-2">
-              {['Website Profil Sekolah', 'Sistem PPDB Online', 'E-Learning (LMS)', 'Sistem Informasi Akademik', 'Portal Alumni'].map((item, idx) => (
+              {['Website Company Profile', 'Toko Online (E-Commerce)', 'Landing Page Penjualan', 'Website Portofolio', 'Katalog Digital'].map((item, idx) => (
                 <li key={idx} className="flex items-center gap-2" style={{ fontSize: '0.9rem', fontWeight: '500' }}>
                   <CheckCircle size={16} color="var(--primary)" /> {item}
                 </li>
@@ -35,10 +35,10 @@ export default function Services() {
             <div style={{ backgroundColor: 'rgba(69, 123, 157, 0.1)', width: '60px', height: '60px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', color: 'var(--secondary)' }}>
               <Monitor size={32} />
             </div>
-            <h3 className="mb-4">Media Pembelajaran</h3>
-            <p className="mb-6" style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Pembuatan media interaktif yang membuat proses belajar-mengajar menjadi lebih menyenangkan.</p>
+            <h3 className="mb-4">Sistem Manajemen</h3>
+            <p className="mb-6" style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Tingkatkan efisiensi bisnis Anda dengan software kasir, manajemen stok, dan CRM yang disesuaikan.</p>
             <ul className="flex flex-col gap-2" style={{ marginTop: 'auto' }}>
-              {['Media Interaktif Web', 'Game Edukasi 2D/3D', 'Video & Animasi Pembelajaran', 'Kuis & Asesmen Digital', 'Aplikasi AR/VR Edukasi'].map((item, idx) => (
+              {['Sistem Point of Sale (POS)', 'Sistem Inventaris / Gudang', 'Aplikasi Akuntansi / Keuangan', 'Customer Relationship Management', 'Sistem Reservasi & Booking'].map((item, idx) => (
                 <li key={idx} className="flex items-center gap-2" style={{ fontSize: '0.9rem', fontWeight: '500' }}>
                   <CheckCircle size={16} color="var(--secondary)" /> {item}
                 </li>
@@ -52,9 +52,9 @@ export default function Services() {
               <Smartphone size={32} />
             </div>
             <h3 className="mb-4">Aplikasi Mobile</h3>
-            <p className="mb-6" style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Pengembangan aplikasi Android dan iOS khusus untuk kebutuhan sekolah dan pembelajaran.</p>
+            <p className="mb-6" style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Pengembangan aplikasi Android dan iOS khusus agar bisnis Anda lebih dekat dengan pelanggan.</p>
             <ul className="flex flex-col gap-2">
-              {['Aplikasi Informasi Sekolah', 'Aplikasi Presensi Siswa', 'E-Rapor Mobile', 'Perpustakaan Digital', 'Aplikasi Keuangan Sekolah'].map((item, idx) => (
+              {['Aplikasi Belanja Mobile', 'Aplikasi Layanan On-Demand', 'Aplikasi Absensi Karyawan', 'Loyalty Program Mobile', 'Aplikasi Sistem Custom'].map((item, idx) => (
                 <li key={idx} className="flex items-center gap-2" style={{ fontSize: '0.9rem', fontWeight: '500' }}>
                   <CheckCircle size={16} color="var(--success)" /> {item}
                 </li>
