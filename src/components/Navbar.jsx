@@ -33,6 +33,7 @@ export default function Navbar() {
             <Link to="/harga" className={`nav-link ${isActive('/harga')}`} onClick={closeMenu}>Harga</Link>
           </div>
           <div className="nav-actions">
+            <Link to="/login" className="btn btn-outline" style={{ border: 'none' }} onClick={closeMenu}>Login Portal</Link>
             <Link to="/order" className="btn btn-primary" onClick={closeMenu}>Konsultasi Gratis</Link>
           </div>
         </div>
