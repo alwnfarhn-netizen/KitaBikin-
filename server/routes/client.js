@@ -5,6 +5,7 @@ import { authenticate, requireRole } from '../middleware/auth.js';
 import { HttpError, idParam, validate, wrap } from '../middleware/http.js';
 import { listProjects, projectDetail } from '../utils/projects.js';
 import { invoiceDetail, listInvoices } from '../utils/invoices.js';
+import { snap } from '../utils/midtrans.js';
 
 const router = Router();
 router.use(authenticate, requireRole('client'));
@@ -59,6 +60,41 @@ router.get(
     const inv = invoiceDetail(idParam(req), req.user.id);
     if (!inv) throw new HttpError(404, 'Tagihan tidak ditemukan.');
     res.json({ invoice: inv });
+  }),
+);
+router.post(
+  '/invoices/:id/pay',
+  wrap(async (req, res) => {
+    const inv = invoiceDetail(idParam(req), req.user.id);
+    if (!inv) throw new HttpError(404, 'Tagihan tidak ditemukan.');
+    if (inv.status === 'lunas' || inv.status === 'batal') {
+      throw new HttpError(400, 'Tagihan ini tidak dapat dibayar.');
+    }
+
+    const remaining = inv.total - inv.paid;
+    const orderId = `INV-${inv.id}-${Date.now()}`;
+
+    const parameters = {
+      transaction_details: {
+        order_id: orderId,
+        gross_amount: remaining,
+      },
+      item_details: inv.items.map(it => ({
+        id: it.id,
+        price: it.price,
+        quantity: it.qty,
+        name: it.description.substring(0, 50),
+      })),
+      customer_details: {
+        first_name: inv.client.name,
+        email: inv.client.email,
+        phone: inv.client.phone || '',
+      },
+      custom_field1: String(inv.id),
+    };
+
+    const transaction = await snap.createTransaction(parameters);
+    res.json({ token: transaction.token, redirect_url: transaction.redirect_url });
   }),
 );
 

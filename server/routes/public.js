@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import rateLimit from 'express-rate-limit';
 import { z } from 'zod';
-import { all, one, run } from '../db.js';
+import { all, one, run, tx } from '../db.js';
+import crypto from 'node:crypto';
 import { SERVICES } from '../config.js';
 import { HttpError, validate, wrap } from '../middleware/http.js';
 
@@ -24,6 +25,7 @@ const trackLimiter = rateLimit({
 });
 
 import { sendWhatsApp } from '../utils/whatsapp.js';
+import { syncInvoiceStatus } from '../utils/invoices.js';
 
 const leadSchema = z.object({
   name: z.string().trim().min(2, 'Nama minimal 2 karakter.').max(120),
@@ -65,6 +67,39 @@ router.get(
       milestones: all('SELECT title, done FROM milestones WHERE project_id = ? ORDER BY sort_order, id', p.id),
       updates: all('SELECT title, body, created_at FROM updates WHERE project_id = ? ORDER BY created_at DESC, id DESC LIMIT 5', p.id),
     });
+  }),
+);
+router.post(
+  '/midtrans',
+  wrap(async (req, res) => {
+    const data = req.body;
+    const serverKey = process.env.MIDTRANS_SERVER_KEY || '';
+    
+    // Verifikasi Signature Midtrans
+    const hash = crypto.createHash('sha512').update(data.order_id + data.status_code + data.gross_amount + serverKey).digest('hex');
+    if (hash !== data.signature_key) {
+      throw new HttpError(403, 'Invalid signature');
+    }
+
+    const invoiceId = Number(data.custom_field1);
+    if (!invoiceId) return res.json({ ok: true });
+
+    const status = data.transaction_status;
+    const fraud = data.fraud_status;
+
+    if (status === 'capture' || status === 'settlement') {
+      if (fraud === 'challenge') return res.json({ ok: true });
+      tx(() => {
+        // Mencegah duplikasi pembayaran
+        const exists = one('SELECT 1 AS x FROM payments WHERE note = ?', data.transaction_id);
+        if (!exists) {
+          run('INSERT INTO payments (invoice_id, amount, method, paid_at, note) VALUES (?,?,?,?,?)', 
+            invoiceId, Math.floor(Number(data.gross_amount)), data.payment_type || 'midtrans', (data.transaction_time || '').slice(0,10) || new Date().toISOString().slice(0,10), data.transaction_id);
+          syncInvoiceStatus(invoiceId);
+        }
+      });
+    }
+    res.json({ ok: true });
   }),
 );
 
