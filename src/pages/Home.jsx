@@ -31,7 +31,7 @@ export default function Home() {
             <div className="red-brush-bg" style={{ top: '-10%', right: '-10%', width: '120%', height: '120%', background: 'radial-gradient(circle, var(--primary) 0%, transparent 70%)' }}></div>
             {/* Using a mockup image placeholder structure */}
             <div className="card" style={{ padding: '0', borderRadius: '1rem', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
-              <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Education Technology Mockup" style={{ display: 'block', width: '100%', objectFit: 'cover' }} />
+              <img src="/hero-character.png" alt="Kawakita Mascot" style={{ display: 'block', width: '100%', objectFit: 'cover' }} />
             </div>
           </div>
         </div>
