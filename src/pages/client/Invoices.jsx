@@ -43,37 +43,7 @@ export function ClientInvoiceView() {
   const { id } = useParams();
   const navigate = useNavigate();
   const state = useAsync(() => api.get(`/client/invoices/${id}`), [id]);
-  const [paying, setPaying] = useState(false);
-
-  const handlePay = async (invoice) => {
-    try {
-      setPaying(true);
-      const { token } = await api.post(`/client/invoices/${invoice.id}/pay`);
-      if (window.snap) {
-        window.snap.pay(token, {
-          onSuccess: () => {
-            alert('Pembayaran berhasil!');
-            window.location.reload();
-          },
-          onPending: () => {
-            alert('Menunggu pembayaran Anda...');
-          },
-          onError: () => {
-            alert('Pembayaran gagal, silakan coba lagi.');
-          },
-          onClose: () => {
-            // closed popup
-          }
-        });
-      } else {
-        alert('Gagal memuat sistem pembayaran.');
-      }
-    } catch (e) {
-      alert(e.message || 'Gagal memulai pembayaran.');
-    } finally {
-      setPaying(false);
-    }
-  };
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <Async state={state}>
@@ -85,16 +55,40 @@ export function ClientInvoiceView() {
               {(invoice.status === 'belum' || invoice.status === 'sebagian') && (
                 <button 
                   className="btn btn-primary btn-sm" 
-                  onClick={() => handlePay(invoice)} 
-                  disabled={paying}
+                  onClick={() => setShowModal(true)} 
                 >
-                  <CreditCard size={16} /> {paying ? 'Memproses...' : 'Bayar Online'}
+                  <CreditCard size={16} /> Bayar Sekarang
                 </button>
               )}
               <button className="btn btn-outline btn-sm" onClick={() => window.print()}><Printer size={16} /> Cetak / PDF</button>
             </div>
           </div>
           <InvoiceDocument invoice={invoice} />
+
+          {/* Modal Transfer Manual */}
+          {showModal && (
+            <div className="modal-backdrop" onClick={() => setShowModal(false)} style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 999 }}>
+              <div className="modal-content dash-card" onClick={e => e.stopPropagation()} style={{ maxWidth: 400, width: '90%', padding: '2rem' }}>
+                <h3 style={{ marginBottom: '1rem', marginTop: 0 }}>Instruksi Pembayaran</h3>
+                <p style={{ marginBottom: '1.5rem', lineHeight: 1.6 }}>
+                  Untuk sementara, silakan lakukan transfer manual ke rekening berikut:
+                  <br /><br />
+                  <strong>Bank:</strong> SeaBank<br />
+                  <strong>No. Rekening:</strong> 9012345678 (Ganti ini nanti)<br />
+                  <strong>Atas Nama:</strong> Alwan Farhan
+                </p>
+                <div style={{ backgroundColor: 'rgba(255,165,0,0.1)', padding: '1rem', borderRadius: 8, marginBottom: '1.5rem' }}>
+                  <small style={{ color: '#F97316' }}>
+                    Mohon transfer sesuai dengan nominal tagihan (<strong>{rupiah(invoice.total - invoice.paid)}</strong>). Setelah transfer, mohon infokan melalui WhatsApp agar kami dapat memproses tagihan Anda.
+                  </small>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
+                  <button className="btn btn-outline" onClick={() => setShowModal(false)}>Tutup</button>
+                  <a href="https://wa.me/6285128071828" target="_blank" rel="noreferrer" className="btn btn-primary">Konfirmasi ke WA</a>
+                </div>
+              </div>
+            </div>
+          )}
         </>
       )}
     </Async>
