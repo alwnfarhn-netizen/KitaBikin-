@@ -20,7 +20,7 @@ export const config = {
   jwtExpires: '7d',
   adminEmail: (env.ADMIN_EMAIL || 'admin@kawakita.id').toLowerCase(),
   adminPassword: (env.ADMIN_PASSWORD || (isProd ? '' : 'Admin#12345')).trim(),
-  seedDemo: (env.SEED_DEMO ?? (isProd ? 'false' : 'true')) === 'true',
+  seedDemo: false,
   dbPath: path.resolve(ROOT, env.DB_PATH || './data/kawakita.db'),
   corsOrigin: (env.CORS_ORIGIN || 'http://localhost:5173').split(',').map((s) => s.trim()),
   siteUrl: env.SITE_URL || 'https://kawakita.id',
