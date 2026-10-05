@@ -6,7 +6,8 @@ export default function Order() {
   const [formData, setFormData] = useState({
     service: '',
     name: '',
-    description: ''
+    description: '',
+    paymentScheme: 'Konsultasi Dulu',
   });
 
   const services = [
@@ -21,9 +22,22 @@ export default function Order() {
     setStep(2);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const text = `Halo Kawakita, saya ${formData.name}. Saya ingin konsultasi pembuatan *${formData.service}*.%0A%0ADetail kebutuhan:%0A${formData.description}`;
+    const finalDesc = `${formData.description}\n\n[Preferensi Bayar: ${formData.paymentScheme}]`;
+    try {
+      await fetch(import.meta.env.VITE_API_URL + '/public/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          service: formData.service,
+          description: finalDesc
+        })
+      });
+    } catch(err) { console.error(err); }
+
+    const text = `Halo Kawakita, saya ${formData.name}. Saya ingin konsultasi pembuatan *${formData.service}*.%0A%0APreferensi Pembayaran: ${formData.paymentScheme}%0A%0ADetail kebutuhan:%0A${formData.description}`;
     window.open(`https://wa.me/6285128071828?text=${text}`, '_blank');
   };
 
@@ -93,6 +107,19 @@ export default function Order() {
                   value={formData.description}
                   onChange={(e) => setFormData({...formData, description: e.target.value})}
                 ></textarea>
+              </div>
+
+              <div className="input-group mb-8">
+                <label className="input-label">Pilihan Metode Pembayaran (Opsional)</label>
+                <select 
+                  className="input-field" 
+                  value={formData.paymentScheme}
+                  onChange={(e) => setFormData({...formData, paymentScheme: e.target.value})}
+                >
+                  <option value="Konsultasi Dulu">Bebas / Konsultasikan Dulu</option>
+                  <option value="50% - 50%">Bagi Dua (DP 50% - Pelunasan 50%)</option>
+                  <option value="40% - 40% - 20%">Tiga Termin (40% - 40% - 20%)</option>
+                </select>
               </div>
 
               <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '1rem', fontSize: '1.125rem' }}>
