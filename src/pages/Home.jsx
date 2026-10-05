@@ -7,18 +7,17 @@ export default function Home() {
       
       {/* Hero Section */}
       <section className="section hero paper-effect">
-        <div className="container grid grid-cols-2 items-center gap-12">
+        <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
           <div className="hero-content animate-fade-up">
-            <div className="handwritten mb-4">Solusi Digital Untuk Bisnis & Pendidikan</div>
+            <div className="handwritten mb-4" style={{ justifyContent: 'center' }}>Solusi Digital Untuk Bisnis & Pendidikan</div>
             <h1 className="mb-6">
-              Kembangkan <br/>
-              Bisnis & Instansi dengan <br/>
+              Kembangkan Bisnis & Instansi dengan <br/>
               <span style={{ color: 'var(--primary)' }}>Teknologi Digital</span>
             </h1>
             <p className="mb-8 text-lg" style={{ color: 'var(--text-muted)' }}>
               Kami membantu UMKM, perusahaan, maupun sekolah menghadirkan website, sistem digital, media pembelajaran, dan berbagai solusi teknologi.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center">
               <Link to="/order" className="btn btn-primary">
                 Konsultasi Gratis <ArrowRight size={18} />
               </Link>
@@ -26,11 +25,6 @@ export default function Home() {
                 Lihat Portofolio
               </Link>
             </div>
-          </div>
-          <div className="hero-image animate-fade-up delay-200 relative">
-            <div className="red-brush-bg" style={{ top: '-10%', right: '-10%', width: '120%', height: '120%', background: 'radial-gradient(circle, var(--primary) 0%, transparent 70%)' }}></div>
-            {/* The mascot image without any card or frame */}
-            <img src="/hero-character.png" alt="Kawakita Mascot Kutai" style={{ display: 'block', width: '100%', objectFit: 'cover', mixBlendMode: 'multiply', position: 'relative', zIndex: 1 }} />
           </div>
         </div>
       </section>
