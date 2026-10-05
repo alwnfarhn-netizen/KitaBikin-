@@ -29,10 +29,8 @@ export default function Home() {
           </div>
           <div className="hero-image animate-fade-up delay-200 relative">
             <div className="red-brush-bg" style={{ top: '-10%', right: '-10%', width: '120%', height: '120%', background: 'radial-gradient(circle, var(--primary) 0%, transparent 70%)' }}></div>
-            {/* Using a mockup image placeholder structure */}
-            <div className="card" style={{ padding: '0', borderRadius: '1rem', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
-              <img src="/hero-character.png" alt="Kawakita Mascot Kutai" style={{ display: 'block', width: '100%', objectFit: 'cover', mixBlendMode: 'multiply' }} />
-            </div>
+            {/* The mascot image without any card or frame */}
+            <img src="/hero-character.png" alt="Kawakita Mascot Kutai" style={{ display: 'block', width: '100%', objectFit: 'cover', mixBlendMode: 'multiply', position: 'relative', zIndex: 1 }} />
           </div>
         </div>
       </section>
