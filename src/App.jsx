@@ -10,8 +10,10 @@ import Order from './pages/Order';
 import AdminDashboard from './pages/AdminDashboard';
 import ClientDashboard from './pages/ClientDashboard';
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
+import Track from './pages/Track';
 
-import './App.css';
+import './dashboard.css';
 
 // Komponen pembungkus untuk halaman publik agar rapi
 const PublicLayout = ({ children }) => (
@@ -34,10 +36,14 @@ function App() {
           <Route path="/portofolio" element={<PublicLayout><Portfolio /></PublicLayout>} />
           <Route path="/harga" element={<PublicLayout><Pricing /></PublicLayout>} />
           <Route path="/order" element={<PublicLayout><Order /></PublicLayout>} />
+          <Route path="/lacak" element={<PublicLayout><Track /></PublicLayout>} />
           
+          {/* Auth */}
+          <Route path="/masuk" element={<Login />} />
+
           {/* Dashboard */}
           <Route path="/admin/*" element={<AdminDashboard />} />
-          <Route path="/client/*" element={<ClientDashboard />} />
+          <Route path="/klien/*" element={<ClientDashboard />} />
           
           {/* Halaman 404 */}
           <Route path="*" element={<PublicLayout><NotFound /></PublicLayout>} />

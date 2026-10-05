@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Monitor, BookOpen, ArrowRight, Play, Server, Palette, CheckCircle } from 'lucide-react';
+import { Monitor, BookOpen, ArrowRight, Server, CheckCircle } from 'lucide-react';
 
 export default function Home() {
   return (

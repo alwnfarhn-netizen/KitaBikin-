@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 export default function Footer() {
   return (
