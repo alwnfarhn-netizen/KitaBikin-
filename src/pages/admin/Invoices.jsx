@@ -16,12 +16,32 @@ function NewInvoiceModal({ clients, projects, presetProject, onClose }) {
   const [dueDate, setDueDate] = useState('');
   const [notes, setNotes] = useState('');
   const [items, setItems] = useState([{ description: '', qty: 1, price: '' }]);
+  const [paymentScheme, setPaymentScheme] = useState('kustom');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 
   const clientProjects = projects.filter((p) => p.client_id === Number(clientId));
   const total = items.reduce((s, i) => s + (Number(i.qty) || 0) * (Number(i.price) || 0), 0);
   const setItem = (idx, k, v) => setItems(items.map((it, i) => (i === idx ? { ...it, [k]: v } : it)));
+
+  const applyScheme = (scheme, projId) => {
+    setPaymentScheme(scheme);
+    if (scheme === 'kustom' || !projId) return;
+    const proj = projects.find(p => p.id === Number(projId));
+    if (!proj || !proj.budget) return;
+    
+    let label = '';
+    let pct = 1;
+    if (scheme === 'dp50') { label = 'DP (50%)'; pct = 0.5; }
+    else if (scheme === 'lunas50') { label = 'Pelunasan (50%)'; pct = 0.5; }
+    else if (scheme === 't1_40') { label = 'Termin 1 (40%)'; pct = 0.4; }
+    else if (scheme === 't2_40') { label = 'Termin 2 (40%)'; pct = 0.4; }
+    else if (scheme === 't3_20') { label = 'Termin 3 (20%)'; pct = 0.2; }
+    
+    if (label) {
+      setItems([{ description: `${label} - ${proj.title}`, qty: 1, price: proj.budget * pct }]);
+    }
+  };
 
   const submit = async (e) => {
     e.preventDefault();
@@ -50,9 +70,9 @@ function NewInvoiceModal({ clients, projects, presetProject, onClose }) {
             </select>
           </Field>
           <Field label="Proyek (opsional)">
-            <select className="input-field" value={projectId} onChange={(e) => setProjectId(e.target.value)}>
+            <select className="input-field" value={projectId} onChange={(e) => { setProjectId(e.target.value); applyScheme('kustom', e.target.value); }}>
               <option value="">— Tanpa proyek —</option>
-              {clientProjects.map((p) => <option key={p.id} value={p.id}>{p.title}</option>)}
+              {clientProjects.map((p) => <option key={p.id} value={p.id}>{p.title} ({rupiah(p.budget)})</option>)}
             </select>
           </Field>
         </div>
@@ -60,6 +80,25 @@ function NewInvoiceModal({ clients, projects, presetProject, onClose }) {
           <Field label="Tanggal terbit"><input type="date" className="input-field" required value={issueDate} onChange={(e) => setIssueDate(e.target.value)} /></Field>
           <Field label="Jatuh tempo"><input type="date" className="input-field" value={dueDate} onChange={(e) => setDueDate(e.target.value)} /></Field>
         </div>
+        
+        {projectId && (
+          <div style={{ marginBottom: '1rem', padding: '0.75rem', backgroundColor: 'rgba(59,130,246,0.1)', borderRadius: 8 }}>
+            <Field label="Pilih Skema Split Otomatis (Dari Budget Proyek)">
+              <select className="input-field" value={paymentScheme} onChange={(e) => applyScheme(e.target.value, projectId)}>
+                <option value="kustom">-- Kustom (Isi Sendiri) --</option>
+                <optgroup label="Skema 50% - 50%">
+                  <option value="dp50">DP (50%)</option>
+                  <option value="lunas50">Pelunasan (50%)</option>
+                </optgroup>
+                <optgroup label="Skema 40% - 40% - 20%">
+                  <option value="t1_40">Termin 1 (40%)</option>
+                  <option value="t2_40">Termin 2 (40%)</option>
+                  <option value="t3_20">Termin 3 (20%)</option>
+                </optgroup>
+              </select>
+            </Field>
+          </div>
+        )}
 
         <span className="input-label">Item</span>
         <div className="pos-items">
