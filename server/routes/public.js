@@ -23,6 +23,8 @@ const trackLimiter = rateLimit({
   message: { error: 'Terlalu banyak permintaan. Coba lagi sebentar.' },
 });
 
+import { sendWhatsApp } from '../utils/whatsapp.js';
+
 const leadSchema = z.object({
   name: z.string().trim().min(2, 'Nama minimal 2 karakter.').max(120),
   contact: z.string().trim().max(120).optional().default(''),
@@ -39,6 +41,13 @@ router.post(
     const { name, contact, service, description, website } = req.body;
     if (website) return res.status(201).json({ ok: true }); // bot: pura-pura sukses
     run('INSERT INTO leads (name, contact, service, description) VALUES (?,?,?,?)', name, contact || null, service, description);
+    
+    // Notifikasi ke Admin via WA (jika nomor admin diatur)
+    if (process.env.ADMIN_PHONE) {
+      const msg = `🔔 *LEAD BARU MASUK*\n\nNama: ${name}\nLayanan: ${service}\nKontak: ${contact || '-'}\n\nPesan:\n"${description}"\n\nSilakan cek panel Admin Kawakita.`;
+      sendWhatsApp(process.env.ADMIN_PHONE, msg).catch(console.error);
+    }
+    
     res.status(201).json({ ok: true });
   }),
 );

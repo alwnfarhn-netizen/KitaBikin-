@@ -16,6 +16,7 @@ import {
   touchProject,
 } from '../utils/projects.js';
 import { invoiceDetail, listInvoices, nextInvoiceNumber, syncInvoiceStatus } from '../utils/invoices.js';
+import { sendWhatsApp } from '../utils/whatsapp.js';
 
 const router = Router();
 router.use(authenticate, requireRole('admin'));
@@ -277,7 +278,12 @@ router.patch(
       if (b.progress === undefined) recalcProgress(id);
       else touchProject(id);
     });
-    res.json({ project: getProject(id) });
+    const updatedProject = getProject(id);
+    if (b.stage && b.stage !== p.stage && updatedProject.client.phone) {
+      const msg = `Halo ${updatedProject.client.name},\n\nStatus proyek *"${updatedProject.title}"* saat ini telah beranjak ke tahap: *${b.stage.toUpperCase()}*.\n\nCek progres selengkapnya di portal klien Kawakita.`;
+      sendWhatsApp(updatedProject.client.phone, msg).catch(console.error);
+    }
+    res.json({ project: updatedProject });
   }),
 );
 
@@ -413,7 +419,12 @@ router.post(
       }
       return invId;
     });
-    res.status(201).json({ id, invoice: invoiceDetail(id) });
+    const inv = invoiceDetail(id);
+    if (inv && inv.client.phone) {
+      const msg = `Halo ${inv.client.name},\n\nTagihan baru telah diterbitkan untuk Anda sejumlah *Rp ${new Intl.NumberFormat('id-ID').format(inv.total)}*.\n\nNomor Invoice: ${inv.number}\nJatuh Tempo: ${inv.due_date || '-'}\n\nSilakan cek detail dan instruksi pembayaran di portal klien Kawakita.\n\nTerima kasih!`;
+      sendWhatsApp(inv.client.phone, msg).catch(console.error);
+    }
+    res.status(201).json({ id, invoice: inv });
   }),
 );
 
