@@ -18,12 +18,12 @@ export const config = {
   port: Number(env.PORT) || 4000,
   jwtSecret: env.JWT_SECRET || 'dev-secret-ganti-di-produksi',
   jwtExpires: '7d',
-  adminEmail: (env.ADMIN_EMAIL || 'admin@kitabikin.id').toLowerCase(),
+  adminEmail: (env.ADMIN_EMAIL || 'admin@kawakita.id').toLowerCase(),
   adminPassword: (env.ADMIN_PASSWORD || (isProd ? '' : 'Admin#12345')).trim(),
   seedDemo: (env.SEED_DEMO ?? (isProd ? 'false' : 'true')) === 'true',
-  dbPath: path.resolve(ROOT, env.DB_PATH || './data/kitabikin.db'),
+  dbPath: path.resolve(ROOT, env.DB_PATH || './data/kawakita.db'),
   corsOrigin: (env.CORS_ORIGIN || 'http://localhost:5173').split(',').map((s) => s.trim()),
-  siteUrl: env.SITE_URL || 'https://kitabikin.id',
+  siteUrl: env.SITE_URL || 'https://kawakita.id',
   distDir: path.join(ROOT, 'dist'),
 };
 

@@ -16,7 +16,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="container nav-container">
         <Link to="/" className="logo" onClick={closeMenu} style={{ textDecoration: 'none' }}>
-          <img src="/logo-full.svg" alt="KitaBikin" style={{ height: '40px' }} />
+          <img src="/logo-full.svg" alt="Kawakita" style={{ height: '40px' }} />
         </Link>
         
         {/* Mobile Menu Toggle */}

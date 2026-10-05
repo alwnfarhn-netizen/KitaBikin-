@@ -1,11 +1,11 @@
-# PRD — KitaBikin Platform
+# PRD — Kawakita Platform
 **Product Requirements Document** · Versi 1.0 · Status: Disetujui untuk implementasi
 
 ---
 
 ## 1. Ringkasan Produk
 
-**KitaBikin** adalah agensi solusi digital untuk **UMKM/bisnis umum** dan **sekolah/pendidikan**
+**Kawakita** adalah agensi solusi digital untuk **UMKM/bisnis umum** dan **sekolah/pendidikan**
 (website, sistem POS & toko online, PPDB/akademik, media pembelajaran, game edukasi, aplikasi custom).
 
 Platform ini terdiri dari tiga lapisan:
@@ -14,7 +14,7 @@ Platform ini terdiri dari tiga lapisan:
 |---|---|---|
 | **Website Publik** | Calon klien, Google | Menjual layanan, menampung leads, transparan soal progres |
 | **Portal Klien** | Klien aktif | Memantau progres proyek, tagihan, dan berkomunikasi |
-| **Panel Admin + POS** | Tim KitaBikin | Mengelola leads, proyek, klien, tagihan, dan pembayaran |
+| **Panel Admin + POS** | Tim Kawakita | Mengelola leads, proyek, klien, tagihan, dan pembayaran |
 
 ### 1.1 Masalah yang diselesaikan
 1. Leads masuk lewat WhatsApp tercecer, tidak tercatat.
@@ -39,7 +39,7 @@ Platform ini terdiri dari tiga lapisan:
 |---|---|---|
 | **Pemilik UMKM (Bu Sari)** | Punya toko/usaha, kurang paham teknis | Tahu progres tanpa bertanya, tagihan jelas |
 | **Operator Sekolah (Pak Budi)** | Admin/guru TIK, urus PPDB & web sekolah | Update berkala, bisa kirim revisi |
-| **Admin KitaBikin (Owner)** | Mengelola semua proyek | Satu dashboard: leads → proyek → tagihan |
+| **Admin Kawakita (Owner)** | Mengelola semua proyek | Satu dashboard: leads → proyek → tagihan |
 
 ---
 

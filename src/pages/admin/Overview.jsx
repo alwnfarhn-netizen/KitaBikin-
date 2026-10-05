@@ -19,7 +19,7 @@ export default function Overview() {
   const state = useAsync(() => api.get('/admin/stats'));
   return (
     <>
-      <PageHeader title="Dashboard" subtitle="Ringkasan bisnis KitaBikin hari ini." />
+      <PageHeader title="Dashboard" subtitle="Ringkasan bisnis Kawakita hari ini." />
       <Async state={state}>
         {(s) => (
           <div className="stack">

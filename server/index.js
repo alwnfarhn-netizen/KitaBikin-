@@ -73,7 +73,7 @@ if (fs.existsSync(path.join(config.distDir, 'index.html'))) {
 app.use(errorHandler);
 
 app.listen(config.port, () => {
-  console.log(`[server] KitaBikin API berjalan di http://localhost:${config.port}`);
+  console.log(`[server] Kawakita API berjalan di http://localhost:${config.port}`);
 });
 
 export default app;

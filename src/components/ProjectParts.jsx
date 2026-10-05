@@ -68,7 +68,7 @@ export function ChatBox({ messages, currentUserId, basePath, onSent }) {
         {messages.map((m) => (
           <div key={m.id} className={`bubble ${m.sender_id === currentUserId ? 'me' : ''}`}>
             {m.body}
-            <small>{m.sender_name}{m.sender_role === 'admin' ? ' (Tim KitaBikin)' : ''} · {timeAgo(m.created_at)}</small>
+            <small>{m.sender_name}{m.sender_role === 'admin' ? ' (Tim Kawakita)' : ''} · {timeAgo(m.created_at)}</small>
           </div>
         ))}
       </div>

@@ -23,7 +23,7 @@ export default function Order() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const text = `Halo KitaBikin, saya ${formData.name}. Saya ingin konsultasi pembuatan *${formData.service}*.%0A%0ADetail kebutuhan:%0A${formData.description}`;
+    const text = `Halo Kawakita, saya ${formData.name}. Saya ingin konsultasi pembuatan *${formData.service}*.%0A%0ADetail kebutuhan:%0A${formData.description}`;
     window.open(`https://wa.me/6285128071828?text=${text}`, '_blank');
   };
 

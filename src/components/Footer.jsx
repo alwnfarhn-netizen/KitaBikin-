@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container grid grid-cols-3 gap-8 mb-12">
         <div>
           <div className="logo mb-4">
-            <img src="/logo-full-light.svg" alt="KitaBikin" style={{ height: '48px' }} />
+            <img src="/logo-full-light.svg" alt="Kawakita" style={{ height: '48px' }} />
           </div>
           <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
             Solusi digital terbaik untuk UMKM, Perusahaan, dan Institusi Pendidikan. Membantu Anda bertransformasi di era teknologi dengan mudah.
@@ -43,7 +43,7 @@ export default function Footer() {
       <div className="container">
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }}>
-            &copy; {new Date().getFullYear()} KitaBikin. All rights reserved.
+            &copy; {new Date().getFullYear()} Kawakita. All rights reserved.
           </p>
           <div className="flex gap-4">
             <a href="#" style={{ color: 'rgba(255,255,255,0.5)' }}>Instagram</a>

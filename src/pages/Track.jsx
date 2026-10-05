@@ -10,7 +10,7 @@ import { StageStepper } from '../components/ProjectParts';
 export default function Track() {
   useSEO({
     title: 'Lacak Progres Proyek',
-    description: 'Cek progres pembuatan website, sistem, atau media pembelajaran Anda secara real-time dengan kode proyek KitaBikin.',
+    description: 'Cek progres pembuatan website, sistem, atau media pembelajaran Anda secara real-time dengan kode proyek Kawakita.',
     path: '/lacak',
   });
   const [params, setParams] = useSearchParams();
@@ -53,7 +53,7 @@ export default function Track() {
           <div className="handwritten mb-2">Transparan & Real-time</div>
           <h1>Lacak Progres Proyek</h1>
           <p style={{ color: 'var(--text-muted)', marginTop: '0.75rem' }}>
-            Masukkan kode proyek yang Anda terima dari tim KitaBikin (contoh: <strong>KB-7F3K2A</strong>).
+            Masukkan kode proyek yang Anda terima dari tim Kawakita (contoh: <strong>KB-7F3K2A</strong>).
           </p>
         </div>
 

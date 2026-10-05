@@ -71,7 +71,7 @@ export function createProject({ clientId, title, service, description, stage, bu
     (milestones ?? []).forEach((m, i) =>
       run('INSERT INTO milestones (project_id, title, sort_order) VALUES (?,?,?)', id, m, i),
     );
-    run('INSERT INTO updates (project_id, title, body) VALUES (?,?,?)', id, 'Proyek dimulai', 'Proyek Anda telah terdaftar di sistem KitaBikin.');
+    run('INSERT INTO updates (project_id, title, body) VALUES (?,?,?)', id, 'Proyek dimulai', 'Proyek Anda telah terdaftar di sistem Kawakita.');
     recalcProgress(id);
     return id;
   });

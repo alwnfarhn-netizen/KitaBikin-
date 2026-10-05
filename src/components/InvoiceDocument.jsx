@@ -9,7 +9,7 @@ export default function InvoiceDocument({ invoice: inv }) {
     <div className="invoice-paper">
       <div className="invoice-head">
         <div>
-          <img src="/logo-full.svg" alt="KitaBikin" height="44" />
+          <img src="/logo-full.svg" alt="Kawakita" height="44" />
           <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.5rem' }}>Solusi Digital untuk Bisnis & Pendidikan<br />WhatsApp 0851-2807-1828</p>
         </div>
         <div className="invoice-meta">
@@ -66,7 +66,7 @@ export default function InvoiceDocument({ invoice: inv }) {
       )}
 
       {inv.notes && <p style={{ marginTop: '1.5rem', padding: '1rem', background: '#faf8f4', borderRadius: 8, fontSize: '0.9rem', whiteSpace: 'pre-wrap' }}><strong>Catatan:</strong> {inv.notes}</p>}
-      <p style={{ marginTop: '2rem', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem' }}>Terima kasih atas kepercayaan Anda kepada KitaBikin 🧡</p>
+      <p style={{ marginTop: '2rem', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem' }}>Terima kasih atas kepercayaan Anda kepada Kawakita 🧡</p>
     </div>
   );
 }

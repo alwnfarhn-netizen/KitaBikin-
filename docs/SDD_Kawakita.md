@@ -1,5 +1,5 @@
-# SDD — KitaBikin Platform
-**Software Design Document** · Versi 1.0 · Pasangan dari [PRD_KitaBikin.md](./PRD_KitaBikin.md)
+# SDD — Kawakita Platform
+**Software Design Document** · Versi 1.0 · Pasangan dari [PRD_Kawakita.md](./PRD_Kawakita.md)
 
 ---
 
@@ -42,7 +42,7 @@ flowchart TB
 ## 2. Struktur Folder
 
 ```
-kitabikin/
+kawakita/
 ├─ docs/                    PRD, SDD
 ├─ public/                  logo, favicon, robots.txt, sitemap.xml, og-image
 ├─ server/
@@ -72,7 +72,7 @@ kitabikin/
 │     ├─ Home, Services, Portfolio, Pricing, Order, Track, Login, NotFound
 │     ├─ admin/  Overview, Leads, Projects, ProjectDetail, Clients, Invoices, InvoiceView
 │     └─ client/ Overview, ProjectDetail, Invoices
-├─ data/                    kitabikin.db (gitignored)
+├─ data/                    kawakita.db (gitignored)
 ├─ .env.example
 └─ package.json
 ```
@@ -220,12 +220,12 @@ Token CSS di `index.css` (`--primary`, `--secondary`, `--background`, …). Komp
 |---|---|---|
 | `PORT` | 4000 | Port API |
 | `JWT_SECRET` | dev-secret | **Wajib** di produksi |
-| `ADMIN_EMAIL` | admin@kitabikin.id | Akun admin awal |
+| `ADMIN_EMAIL` | admin@kawakita.id | Akun admin awal |
 | `ADMIN_PASSWORD` | Admin#12345 (dev) | **Wajib** di produksi |
 | `SEED_DEMO` | true (dev) | Isi data contoh |
-| `DB_PATH` | ./data/kitabikin.db | Lokasi database |
+| `DB_PATH` | ./data/kawakita.db | Lokasi database |
 | `CORS_ORIGIN` | http://localhost:5173 | Origin diizinkan |
-| `SITE_URL` | https://kitabikin.id | Untuk canonical/sitemap |
+| `SITE_URL` | https://kawakita.id | Untuk canonical/sitemap |
 
 ## 8. Menjalankan & Deploy
 ```bash

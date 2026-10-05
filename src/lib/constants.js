@@ -1,5 +1,5 @@
-export const SITE_NAME = 'KitaBikin';
-export const SITE_URL = 'https://kitabikin.id';
+export const SITE_NAME = 'Kawakita';
+export const SITE_URL = 'https://kawakita.id';
 export const WA_NUMBER = '6285128071828';
 
 export const SERVICES = [

@@ -90,7 +90,7 @@ export default function Leads() {
   };
   const wa = (l) => {
     const num = (l.contact || '').replace(/\D/g, '').replace(/^0/, '62');
-    return num.length >= 9 ? `https://wa.me/${num}?text=${encodeURIComponent(`Halo ${l.name}, kami dari KitaBikin menindaklanjuti permintaan ${l.service} Anda.`)}` : null;
+    return num.length >= 9 ? `https://wa.me/${num}?text=${encodeURIComponent(`Halo ${l.name}, kami dari Kawakita menindaklanjuti permintaan ${l.service} Anda.`)}` : null;
   };
 
   return (

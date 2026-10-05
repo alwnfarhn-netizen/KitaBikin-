@@ -22,12 +22,12 @@ export default function DashboardLayout({ roleLabel, items }) {
         <button className="icon-btn" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
-        <img src="/logo-full.svg" alt="KitaBikin" style={{ height: '30px', width: 'auto' }} />
+        <img src="/logo-full.svg" alt="Kawakita" style={{ height: '30px', width: 'auto' }} />
       </header>
 
       <aside className={`dash-sidebar ${open ? 'open' : ''}`}>
         <Link to="/" className="dash-brand" onClick={() => setOpen(false)}>
-          <img src="/logo-full.svg" alt="KitaBikin" style={{ height: '34px', width: 'auto' }} />
+          <img src="/logo-full.svg" alt="Kawakita" style={{ height: '34px', width: 'auto' }} />
           <span className="dash-role">{roleLabel}</span>
         </Link>
 

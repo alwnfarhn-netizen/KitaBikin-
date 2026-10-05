@@ -12,8 +12,8 @@ export function seedAdmin() {
   const exists = one("SELECT 1 AS x FROM users WHERE role = 'admin' LIMIT 1");
   if (exists) return;
   run(
-    "INSERT INTO users (name,email,password_hash,role,organization) VALUES (?,?,?,'admin','KitaBikin')",
-    'Admin KitaBikin', config.adminEmail, hash(config.adminPassword),
+    "INSERT INTO users (name,email,password_hash,role,organization) VALUES (?,?,?,'admin','Kawakita')",
+    'Admin Kawakita', config.adminEmail, hash(config.adminPassword),
   );
   console.log(`[seed] Admin dibuat: ${config.adminEmail}`);
 }
@@ -65,7 +65,7 @@ export function seedDemo() {
       const id = Number(
         run(
           'INSERT INTO invoices (number,project_id,client_id,issue_date,due_date,notes) VALUES (?,?,?,?,?,?)',
-          nextInvoiceNumber(), projectId, clientId, daysFromNow(-15), daysFromNow(7), 'Pembayaran via transfer BCA 1234567890 a.n. KitaBikin',
+          nextInvoiceNumber(), projectId, clientId, daysFromNow(-15), daysFromNow(7), 'Pembayaran via transfer BCA 1234567890 a.n. Kawakita',
         ).lastInsertRowid,
       );
       items.forEach(([d, q, p]) => run('INSERT INTO invoice_items (invoice_id,description,qty,price) VALUES (?,?,?,?)', id, d, q, p));

@@ -6,7 +6,7 @@ import { useSEO } from '../lib/seo';
 import { FormError } from '../components/ui';
 
 export default function Login() {
-  useSEO({ title: 'Masuk', description: 'Masuk ke portal klien atau panel admin KitaBikin.', path: '/masuk', noindex: true });
+  useSEO({ title: 'Masuk', description: 'Masuk ke portal klien atau panel admin Kawakita.', path: '/masuk', noindex: true });
   const { user, login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,7 +36,7 @@ export default function Login() {
   return (
     <div className="auth-page">
       <div className="auth-card animate-fade-up">
-        <Link to="/"><img src="/logo-full.svg" alt="KitaBikin" style={{ height: '42px', width: 'auto' }} /></Link>
+        <Link to="/"><img src="/logo-full.svg" alt="Kawakita" style={{ height: '42px', width: 'auto' }} /></Link>
         <h1>Selamat datang</h1>
         <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Masuk untuk memantau proyek, tagihan, dan progres Anda.</p>
 
@@ -65,7 +65,7 @@ export default function Login() {
         {showDemo && (
           <div className="demo-box">
             <strong>Akun demo (mode pengembangan):</strong>
-            <div>Admin: <button type="button" onClick={() => setForm({ email: 'admin@kitabikin.id', password: 'Admin#12345' })}>admin@kitabikin.id</button></div>
+            <div>Admin: <button type="button" onClick={() => setForm({ email: 'admin@kawakita.id', password: 'Admin#12345' })}>admin@kawakita.id</button></div>
             <div>Klien: <button type="button" onClick={() => setForm({ email: 'budi@smkn1bantul.sch.id', password: 'Client#12345' })}>budi@smkn1bantul.sch.id</button></div>
           </div>
         )}

@@ -24,7 +24,7 @@ export default function ClientOverview() {
             <div className="dash-card">
               <h2>Proyek Saya</h2>
               {projects.length === 0 ? (
-                <EmptyState icon={FolderKanban} title="Belum ada proyek" hint="Proyek akan tampil di sini setelah dibuat oleh tim KitaBikin." />
+                <EmptyState icon={FolderKanban} title="Belum ada proyek" hint="Proyek akan tampil di sini setelah dibuat oleh tim Kawakita." />
               ) : (
                 <div className="stack" style={{ gap: '1rem' }}>
                   {projects.map((p) => (
